@@ -13,15 +13,6 @@ function getComputerChoice() {
     return Math.floor(Math.random() * 3);
 }
 
-function getUserChoice() {
-    let userInput = prompt('Rock, Paper, Scissor?');
-    let userChoice = rPs.indexOf((userInput).toLowerCase());
-    if (userChoice == -1){
-        alert('INCORRECT INPUT');
-        return getUserChoice()}
-    return userChoice;
-    }
-
 function capitalize(str) {
     return str[0].toUpperCase() + str.substring(1);
 }
@@ -35,8 +26,6 @@ function playRound(userChoice){
     if (userChoice === computerChoice){ 
         result.textContent = `DRAW! ${capitalize(rPs[userChoice])} vs ${capitalize(rPs[computerChoice])}`;
         drawCounter += 1;
-        
-        
     } else if (
         userChoice == 0 && computerChoice == 2 || 
         userChoice == 1 && computerChoice == 0 ||
