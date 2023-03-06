@@ -99,10 +99,9 @@ function gameOver (){
     const restartBtn = document.createElement('button', id='restart');
     restartBtn.textContent = 'PLAY AGAIN';
     results.appendChild(restartBtn);  
-    
+    restartBtn.addEventListener('click', function(){location.reload()})
     ;
 }
-
 
 
 
