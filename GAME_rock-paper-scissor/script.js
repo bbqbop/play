@@ -1,17 +1,28 @@
 const rPs = ['rock','paper','scissor']
-
-function getComputerChoice() {
-    return Math.floor(Math.random() * 3);
-}
-
-function capitalize(str) {
-    return str[0].toUpperCase() + str.substring(1);
-}
-
 let winCounter = 0;
 let loseCounter = 0;
 let drawCounter = 0;
 
+// DIV buttons
+const buttons = document.querySelectorAll('button');
+  const rock = document.querySelector('#rock');
+  rock.addEventListener('click', () => playRound(0))
+  const paper = document.querySelector('#paper');
+  paper.addEventListener('click', () => playRound(1))
+  const scissors = document.querySelector('#scissors');
+  scissors.addEventListener('click', () => playRound(2))
+  
+// DIV container
+const container = document.querySelector('.container')
+const result = document.querySelector('#result');
+const counter = document.querySelector('#counter');
+
+function getComputerChoice() {
+    return Math.floor(Math.random() * 3);
+}
+function capitalize(str) {
+    return str[0].toUpperCase() + str.substring(1);
+}
 function playRound(userChoice){
     let computerChoice = getComputerChoice()
     if (userChoice === computerChoice){ 
@@ -34,19 +45,6 @@ function playRound(userChoice){
     counter.textContent = `WINS: ${winCounter} | LOSES: ${loseCounter} | DRAWS: ${drawCounter}`;
 
 }
-
-const buttons = document.querySelectorAll('button');
-  const rock = document.querySelector('#rock');
-  rock.addEventListener('click', () => playRound(0))
-  const paper = document.querySelector('#paper');
-  paper.addEventListener('click', () => playRound(1))
-  const scissors = document.querySelector('#scissors');
-  scissors.addEventListener('click', () => playRound(2))
-
-const container = document.querySelector('.container')
-const result = document.querySelector('#result');
-const counter = document.querySelector('#counter');
-
 function gameOver (){
     buttons.forEach(button => button.remove())
     result.classList.add('gameover');
