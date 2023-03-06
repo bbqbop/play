@@ -1,0 +1,36 @@
+body {
+    box-sizing: border-box;
+}
+
+.body {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.container {
+    width: 600px;
+    height: 600px;
+    border: 10px black solid;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.gridRow {
+    flex:1;
+    display: flex;
+    
+}
+
+.gridItem { 
+    flex: 1;
+    border: 1px solid black;
+}
+
