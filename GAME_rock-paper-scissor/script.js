@@ -1,12 +1,3 @@
-// create indexed array
-// generate computer answer (0-2);
-// prompt user for answer;
-// compare ;
-// // rock0 > scissor;
-// // paper1 > rock;
-// // scissor2 > paper;
-// declare winner;
-
 const rPs = ['rock','paper','scissor']
 
 function getComputerChoice() {
@@ -44,38 +35,15 @@ function playRound(userChoice){
 
 }
 
-function game() {
-    let draw = 0
-    let win = 0
-    let lose = 0
-    for (i=0; i < 5; i++){
-        let userChoice = getUserChoice()
-        let computerChoice = getComputerChoice()
-        let round = playRound(userChoice, computerChoice);
-        console.log(round);
-        if (round.startsWith('INCORRECT')){
-            i -= 1;
-            continue;
-        }
-        else if (round.startsWith('DRAW')) draw += 1;
-        else if (round.startsWith('YOU WIN')) win += 1;
-        else if (round.startsWith('YOU LOSE')) lose += 1;
-    }
-    let result = win > lose ? 'YOU WON!' : 'YOU LOST!';
-    console.log(`${result} ${win} wins, ${lose} defeats, ${draw} draws`)
-}
-
 const buttons = document.querySelectorAll('button');
   const rock = document.querySelector('#rock');
   rock.addEventListener('click', () => playRound(0))
-
   const paper = document.querySelector('#paper');
   paper.addEventListener('click', () => playRound(1))
-
   const scissors = document.querySelector('#scissors');
   scissors.addEventListener('click', () => playRound(2))
 
-const results = document.querySelector('.results')
+const container = document.querySelector('.container')
 const result = document.querySelector('#result');
 const counter = document.querySelector('#counter');
 
@@ -87,7 +55,7 @@ function gameOver (){
         : result.textContent = `YOU LOSE`);
     const restartBtn = document.createElement('button', id='restart');
     restartBtn.textContent = 'PLAY AGAIN';
-    results.appendChild(restartBtn);  
+    container.appendChild(restartBtn);  
     restartBtn.addEventListener('click', function(){location.reload()})
     ;
 }

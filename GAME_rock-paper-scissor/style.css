@@ -19,7 +19,7 @@ button {
     border-radius: 50%;
 }
 
-.results {
+.container {
     display: flex;
     flex-direction: column;
 }    
