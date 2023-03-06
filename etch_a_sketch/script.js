@@ -7,12 +7,15 @@ const container = document.querySelector('.container');
 let gridSize = 16;
 drawGrid();
 
+const btnClear = document.querySelector('#btnClear');
+btnClear.addEventListener('click', () => drawGrid())
+
 const inpGridSize = document.querySelector('#gridSize');
+
 inpGridSize.addEventListener('change', (e) => {
     gridSize = e.target.value;
     drawGrid();
 })
-
 
 function drawGrid(){
     clearBox(container);
