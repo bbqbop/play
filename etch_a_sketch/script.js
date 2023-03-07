@@ -1,7 +1,7 @@
 let gridRow;
 let gridItem;
 let gridSize = 16;
-let selectAll;
+let color = 'black';
 
 const inpGridSize = document.querySelector('#gridSize');
 const btnClear = document.querySelector('#btnClear');
@@ -21,14 +21,30 @@ function clearBox(element)
 
 chooseColor.addEventListener('change', (e) => {
     color = e.target.value;
-    changeColor(color);
+    for (i of container.children){
+        for (j of i.children){
+            changeColor(j, color);
+    }}
 })
 
-function changeColor(color){
-    gridItem.addEventListener ('mouseover', (event) => {
+function changeColor(element, color){
+    element.addEventListener ('mouseover', (event) => {
     event.target.style.backgroundColor = color;
         })
+}
+
+function eraser(){
+    let mouseDown = false;
+    document.body.onmousedown = () => console.log('down');
+    (mouseDown = true)
+    document.body.onmouseup = () => (mouseDown = false)
+    while(mouseDown){
+    for (i of container.children){
+        i.addEventListener('mouseover', (e) => {
+            e.target.style.backgroundColor = 'white';
+        })
     }
+}}
 
 function drawGrid(){
     clearBox(container);
@@ -40,10 +56,10 @@ function drawGrid(){
             gridItem = document.createElement('div');
             gridItem.classList.add('gridItem');
             gridRow.appendChild(gridItem);
-            changeColor('black');
+            changeColor(gridItem, color);
         }
     }
 }
 
-
 drawGrid();
+eraser();

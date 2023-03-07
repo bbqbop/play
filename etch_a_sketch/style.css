@@ -6,10 +6,10 @@ body {
 
 .body {
     display: flex;
-    gap: 30px;
+    justify-content: center;
+    align-items: first baseline;
     flex-wrap: wrap;
     margin-bottom: 30px;
-    justify-content: center;
 }
 
 .header {
@@ -19,6 +19,17 @@ body {
 .menu {
     display: flex;
     flex-direction: column;
+    margin: 10px;
+    gap: 5px;
+}
+
+.menuRight {
+    display: flex;
+    justify-content: space-between;
+}
+
+#btnClear {
+    flex: 1;
 }
 
 .container {
